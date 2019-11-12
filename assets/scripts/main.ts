@@ -179,9 +179,12 @@ export default class NewClass extends cc.Component {
         this.rockArray = new Array()
         for(var i = 0; i < this.final_path.length - 1; i ++){
             // x : x, y: y
-            var maxAppear = Math.floor(Math.random()*4)
+            var maxAppear = Math.floor(Math.random()*1)
             if(this.coordinate[this.final_path[i]][0] == this.coordinate[this.final_path[i+1]][0]){
                 var x:number[] = new Array()
+                //t = 0 -> giua 
+                //t = 1 -> trai
+                //t = 2 -> phai
                 x.push(this.coordinate[this.final_path[i]][0])
                 x.push(this.coordinate[this.final_path[i]][0] - 8)
                 x.push(this.coordinate[this.final_path[i]][0] + 8)
@@ -192,8 +195,8 @@ export default class NewClass extends cc.Component {
                     } else{
                         y = Math.floor(Math.random()*Math.abs(this.coordinate[this.final_path[i]][1] - this.coordinate[this.final_path[i+1]][1]) + this.coordinate[this.final_path[i+1]][1])
                     }
-                    var t = Math.floor(Math.random() * 10)
-                    this.rockArray.push([x[t%3], y])
+                    var t = Math.floor(Math.random() * 3)
+                    this.rockArray.push([x[t], y,t])
                 }
                 // x : y, y : x(do phai dat nhieu bien :)) )
             } else{
@@ -208,8 +211,8 @@ export default class NewClass extends cc.Component {
                     } else{
                         y = Math.floor(Math.random()*Math.abs(this.coordinate[this.final_path[i]][0] - this.coordinate[this.final_path[i+1]][0]) + this.coordinate[this.final_path[i+1]][0])
                     }
-                    var t = Math.floor(Math.random() * 10)
-                    this.rockArray.push([y, x[t%3]])
+                    var t = Math.floor(Math.random() * 3)
+                    this.rockArray.push([y, x[t],t])
                 }
             }
         }
