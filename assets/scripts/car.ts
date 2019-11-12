@@ -29,7 +29,11 @@ export default class NewClass extends cc.Component {
     speed: number
     timer:number
     passLight: boolean
-    
+    direction:number
+    //t = 0 -> giua 
+    //t = 1 -> trai
+    //t = 2 -> phai
+
 
     // LIFE-CYCLE CALLBACKS:
 
@@ -86,6 +90,7 @@ export default class NewClass extends cc.Component {
         this.actYInc = false;
         this.timer = 0;
         this.passLight = false;
+        this.direction = 0
     }
 
     speedUp(){
